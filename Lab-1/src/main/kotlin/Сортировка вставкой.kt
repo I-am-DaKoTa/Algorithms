@@ -13,17 +13,17 @@ fun main() {
     val inputFileName = "src/main/resources/Сортировка вставкой/input.txt"
     val outputFileName = "src/main/resources/Сортировка вставкой/output.txt"
     try {
-        val (n, a) = readInputFile(inputFileName)
+        val (n, a) = readInsertionSortInputFile(inputFileName)
 
         insertionSort(n, a)
 
-        writeOutputFile(outputFileName, a)
+        writeInsertionSortOutputFile(outputFileName, a)
     } catch (e: Exception) {
         println("Ошибка чтения файла: ${e.message}")
     }
 }
 
-fun readInputFile(fileName: String): Pair<Int, IntArray> {
+fun readInsertionSortInputFile(fileName: String): Pair<Int, IntArray> {
     val file = File(fileName)
     val lines = file.readLines()
     val n = lines[0].toInt()
@@ -43,7 +43,7 @@ fun insertionSort(arraySize: Int, array: IntArray) {
     }
 }
 
-fun writeOutputFile(fileName: String, array: IntArray) {
+fun writeInsertionSortOutputFile(fileName: String, array: IntArray) {
     val file = File(fileName)
     file.writeText(array.joinToString(separator = " "))
 }
